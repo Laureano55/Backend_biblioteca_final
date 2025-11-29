@@ -34,7 +34,7 @@ npm test
 
 ## Endpoints
 
-**Auth**
+### Auth
 - **POST /auth/register**: Registrar usuario
 	- Auth: none
 	- Body JSON: `{ "nombre": string, "correo": string, "contraseña": string, "permisos"?: string[] }`
@@ -45,7 +45,7 @@ npm test
 	- Body JSON: `{ "correo": string, "contraseña": string }`
 	- Respuestas: `200` `{ token, user }`, `400` credenciales inválidas
 
-**Usuarios**
+### Usuarios
 - **GET /usuarios/me**: Perfil
 	- Auth: `Authorization: Bearer <token>`
 	- Respuestas: `200` usuario (sin `contraseña`), `401` no autenticado, `404` inhabilitado/no encontrado
@@ -88,7 +88,7 @@ npm test
 	- Permisos: `disableBooks`
 	- Respuestas: `200` `{ updated: { enabled: false } }`, `403` sin permiso
 
-**Reservas**
+### Reservas
 - **POST /libros/:id/reservar**: Reservar libro
 	- Auth: `Authorization: Bearer <token>`
 	- Body: none
@@ -111,7 +111,7 @@ npm test
 	- Auth: `Authorization: Bearer <token>`
 	- Notas: devuelve reservas populated con `user` (`nombre correo`); devuelve `404` si libro inhabilitado/no existe
 
-**Encabezados y formato**
+### Encabezados y formato
 - `Content-Type: application/json` para requests con body.
 - `Authorization: Bearer <token>` para endpoints protegidos.
 
